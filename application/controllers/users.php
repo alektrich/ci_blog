@@ -2,6 +2,25 @@
 
 class Users extends CI_Controller {
 
+	// Svuda ispred "function" mora imaš da li je private ili public. Neka
+	// za sada sve budu public
+	// 
+	// umesto $_POST, koristi input biblioteku CI-a:
+	// http://ellislab.com/codeigniter/user-guide/libraries/input.html
+	// 
+	
+	
+	// Ovo ti je konstruktor, on se uvek automatski poziva pre poziva bilo
+	// koje od f-ja u ovoj klasi. U njega meteš sve ono što uvek oćeš da ti 
+	// poziva. Recimo:
+	function __construct()
+	{
+		parent::__construct();
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		echo "Ovaj string će uvek da ti se ispisuje";
+	}
+
 	function login() {
 		$data['error'] = 0;
 		if($_POST) {
@@ -29,7 +48,9 @@ class Users extends CI_Controller {
 	}
 
 	function register() {
-		if($_POST) {
+		// Ovo ispod sam ti ja dodao
+		$data = null;
+		if($this->input->post()) {
 
 			$config = array(
 				array(
@@ -58,7 +79,7 @@ class Users extends CI_Controller {
 					'rules' => 'trim|required|is_unique[users.email]|valid_email'
 				)
 			);
-			$this->load->library('form_validation');
+			
 			$this->form_validation->set_rules($config);
 			if($this->form_validation->run() == FALSE) {
 				$data['errors'] = validation_errors();
@@ -77,7 +98,6 @@ class Users extends CI_Controller {
 			}
 
 		}	
-		$this->load->helper('form');
 		$this->load->view('header');
 		$this->load->view('register_user', $data);
 		$this->load->view('footer');		
