@@ -79,7 +79,7 @@ class Users extends CI_Controller {
 		}	
 		$this->load->helper('form');
 		$this->load->view('header');
-		$this->load->view('register_user');
+		$this->load->view('register_user', $data);
 		$this->load->view('footer');		
 	}
 }
