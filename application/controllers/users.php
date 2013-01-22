@@ -18,7 +18,7 @@ class Users extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('form');
 		$this->load->library('form_validation');
-		echo "Ovaj string će uvek da ti se ispisuje";
+		//echo "Ovaj string će uvek da ti se ispisuje";
 	}
 
 	public function login() {
