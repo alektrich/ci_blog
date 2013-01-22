@@ -2,12 +2,12 @@
 
 class Posts extends CI_Controller {
 
-	function __construct() {
+	public function __construct() {
 		parent::__construct();
 		$this->load->model('post');
 	}
 
-	function index($start=0) {
+	public function index($start=0) {
 		$data['posts']=$this->post->get_posts(5, $start);
 		$this->load->library('pagination');
 		$config['base_url']=base_url().'posts/index/';
@@ -20,14 +20,14 @@ class Posts extends CI_Controller {
 		$this->load->view('footer');
 	}
 
-	function post($postID) {
+	public function post($postID) {
 		$data['post']=$this->post->get_post($postID);
 		$this->load->view('header');
 		$this->load->view('post', $data);
 		$this->load->view('footer');
 	}
 
-	function new_post() {
+	public function new_post() {
 		$user_type = $this->session->userdata('user_type');
 		if($user_type !== 'admin' && $user_type !== 'author') {
 			redirect(base_url().'users/login');
@@ -47,7 +47,7 @@ class Posts extends CI_Controller {
 		}
 	}
 
-	function correct_permissions($required) {
+	public function correct_permissions($required) {
 		$user_type = $this->session->userdata('user_type');
 		if($required=='user') {
 			if($user_type) {
@@ -64,7 +64,7 @@ class Posts extends CI_Controller {
 		}
 	}
 
-	function editpost($postID) {
+	public function editpost($postID) {
 		if(!$this->correct_permissions('author')) {
 			redirect(base_url().'users/login');
 		}
@@ -84,7 +84,7 @@ class Posts extends CI_Controller {
 		$this->load->view('footer');
 	}
 
-	function deletepost($postID) {
+	public function deletepost($postID) {
 		$user_type = $this->session->userdata('user_type');
 		if($user_type !== 'admin' && $user_type !== 'author') {
 			redirect(base_url().'users/login');
