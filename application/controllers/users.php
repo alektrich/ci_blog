@@ -13,7 +13,7 @@ class Users extends CI_Controller {
 	// Ovo ti je konstruktor, on se uvek automatski poziva pre poziva bilo
 	// koje od f-ja u ovoj klasi. U njega meteš sve ono što uvek oćeš da ti 
 	// poziva. Recimo:
-	function __construct()
+	public function __construct()
 	{
 		parent::__construct();
 		$this->load->helper('form');
@@ -21,7 +21,7 @@ class Users extends CI_Controller {
 		echo "Ovaj string će uvek da ti se ispisuje";
 	}
 
-	function login() {
+	public function login() {
 		$data['error'] = 0;
 		if($_POST) {
 			$this->load->model('user');
@@ -42,12 +42,12 @@ class Users extends CI_Controller {
 		$this->load->view('footer');
 	}
 
-	function logout() {
+	public function logout() {
 		$this->session->sess_destroy();
 		redirect(base_url().'posts');
 	}
 
-	function register() {
+	public function register() {
 		// Ovo ispod sam ti ja dodao
 		$data = null;
 		if($this->input->post()) {
