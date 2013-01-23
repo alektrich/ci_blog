@@ -23,7 +23,7 @@ class Upload extends CI_Controller {
 		if(!$this->upload->do_upload()) {
 			$error = array('error'=>$this->upload->display_errors());
 		} else {
-			$data = ['upload_data'] = $this->upload->data();
+			$data['upload_data'] = $this->upload->data();
 			$this->load->view('upload_success', $data);
 		}
 	}
