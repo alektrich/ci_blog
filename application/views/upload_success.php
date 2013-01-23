@@ -5,4 +5,4 @@
 	<?php } ?>
 </ul>
 
-<p><a href=''>Upload another file</a></p>
+<p><a href='<?php echo base_url()."upload"; ?>'>Upload another file</a></p>
