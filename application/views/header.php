@@ -2,24 +2,27 @@
 <html>
 <head>
 <title>CI Series</title>
+
+<!-- Ovde ti fali uvlačenje (indentacija), pošto se to radi isto i za css, kao i za php kod.
+-->
 <style>
 body {
 background: #F2F2F2;
 }
 #wrapper {
-width: 980px;
-margin: 0 auto;
-background: #FFF;
-padding: 10px;
+	width: 980px;
+	margin: 0 auto;
+	background: #FFF;
+	padding: 10px;
 }
 #navcontainer ul {
-padding-left: 0;
-margin-left: 0;
-background-color: #036;
-color: White;
-float: left;
-width: 100%;
-font-family: arial, helvetica, sans-serif;
+	padding-left: 0;
+	margin-left: 0;
+	background-color: #036;
+	color: White;
+	float: left;
+	width: 100%;
+	font-family: arial, helvetica, sans-serif;
 }
 #navcontainer ul li {
 display: inline;
