@@ -1,4 +1,5 @@
 <h2>Login</h2>
+<!--Malo promene-->
 <?php if($error == 1) { ?>
 	<p>Your username / password is incorect!</p>
 <?php } ?>
